@@ -1,3 +1,4 @@
 Sophia Pegues
 sophia11@uchicago.edu
 CAAP - Introduction to Software Development
+Git is pretty cool 

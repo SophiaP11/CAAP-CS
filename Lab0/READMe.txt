@@ -1,1 +1,2 @@
-"Sophia Pegues / sophia11" 
+Sophia Pegues / sophia11
+Git is pretty cool 
