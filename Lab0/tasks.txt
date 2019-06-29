@@ -1,2 +1,12 @@
 Task 6
 ------
+I used the command: git commit --amend
+Then it output $ git commit --amend
+[master bfc0753] Adding Task 6
+ Date: Fri Jun 28 19:45:44 2019 -0500
+ 1 file changed, 2 insertions(+)
+ create mode 100644 Lab0/tasks.txt
+
+I found this information at: https://help.github.com/en/articles/changing-a-commit-message
+
+I also had trouble exiting the commit message editing page so I found another source to help me exit. The link to this site is: https://stackoverflow.com/questions/9171356/how-do-i-exit-from-the-text-window-in-git
