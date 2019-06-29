@@ -21,3 +21,17 @@ Author: Junegunn Choi <junegunn.c@gmail.com>
 Date:   Thu Jan 30 15:41:44 2014 +0900
 
     Add --no-mouse option to replace FZF_MOUSE_ENABLED
+ 
+Task 8
+------
+I used the command: git diff HEAD. I found this on the Git Cheat Sheet handout.
+My output was: diff --git a/Lab0/READMe.txt b/Lab0/READMe.txt
+index 9a47d47..01210a9 100644
+--- a/Lab0/READMe.txt
++++ b/Lab0/READMe.txt
+@@ -1,3 +1,4 @@
+ Sophia Pegues / sophia11
+ Git is pretty cool
+ Hopefully our last change....
++I hope I can do Task 8...
+
