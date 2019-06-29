@@ -10,3 +10,14 @@ Then it output $ git commit --amend
 I found this information at: https://help.github.com/en/articles/changing-a-commit-message
 
 I also had trouble exiting the commit message editing page so I found another source to help me exit. The link to this site is: https://stackoverflow.com/questions/9171356/how-do-i-exit-from-the-text-window-in-git
+Task 7
+------
+First I did: git log --oneline, which showed me the list of all the commits
+I found out how to do this at :https://stackoverflow.com/questions/9171356/how-do-i-exit-from-the-text-window-in-git
+Then I looked up how to search for specific git log commit messages and found answers at :https://stackoverflow.com/questions/7124914/how-to-search-a-git-repository-by-commit-message
+I then input: git log --all --grep'--no mouse'
+It then output this commit SHA and commit message: commit c7e86ad4f1061b0cad9f64a6c9ad26f386bc1168
+Author: Junegunn Choi <junegunn.c@gmail.com>
+Date:   Thu Jan 30 15:41:44 2014 +0900
+
+    Add --no-mouse option to replace FZF_MOUSE_ENABLED
