@@ -35,3 +35,7 @@ index 9a47d47..01210a9 100644
  Hopefully our last change....
 +I hope I can do Task 8...
 
+ 
+Task 9
+------
+I removed the file by using the basic command: rm mistake.txt. I then commited this new change. I knew this command because I have been using it to remove all my previous mistakes I have made when attempting to do this lab. This command can also be found on one of the handouts given to us.
