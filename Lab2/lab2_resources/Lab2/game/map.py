@@ -10,10 +10,12 @@ class Map(object):
 				'lit_hole' : S.LitHole(),
 				'locked_door' : S.LockedDoor(),
 				'two_paths' : S.TwoPaths(),
+				'two_choices' : S.TwoChoices(),
+				'doors_room' : S.DoorsRoom(),
 				'tunnel' : S.Tunnel(),
-				'escape_pod' : S.EscapePod(),
+				'dark_hole' : S.DarkHole(),
+				'hallway_end' : S.HallwayEnd(),
 				'death' : Death(),
-				'finished' : S.Finished()
 				# raise ValueError ('todo')
               #Add more scenes
 				}

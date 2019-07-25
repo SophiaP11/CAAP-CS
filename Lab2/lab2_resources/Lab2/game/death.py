@@ -17,3 +17,4 @@ class Death(object):
 		print ("You died.")
 		print (Death.quips[randint(0, len(self.quips)- 1)])
 		return 'died'
+		#tells the player they died and returns the died outcome back to the game engine.
