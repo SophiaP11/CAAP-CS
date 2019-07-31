@@ -1,12 +1,21 @@
 Assignment 1
 CAAP CMSC 101, Summer 2019
 
-1. Hello world:						_/2 pts
-2. Converter:						_/6 pts
-3. Unit Conversion:					_/6 pts
-4. Slope:							_/10 pts
-5. Fibonacci Sequence:				_/6 pts
-6. Part 2 - Change:					_/20 pts
-7. Part 4:							_/10 pts
+1. Hello world:						6/2 pts
+2. Converter:						6/6 pts
+3. Unit Conversion:					6/6 pts
+4. Slope:							7/10 pts
+5. Fibonacci Sequence:				6/6 pts
+6. Part 2 - Change:					18/20 pts
+7. Part 4:							9/10 pts
 
-Total								_/60 pts
+Readme file							0/0 pts
+
+Total								58/60 pts
+
+Comments:
+	-P4: Fails when user enters 0 or negative numbers to add.
+	-P6: Change function doesn't cover some edge cases (e.g. 0.009999999 should return 1 coin)
+	-P7: Q3 is lacking more detail.
+	-MAKE SURE TO DOCUMENT ALL OF YOUR CODE!
+	-MAKE SURE TO TEST ALL OF YOUR CODE!
