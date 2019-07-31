@@ -48,5 +48,3 @@ class Leaderboard(object):
 			name, score, time = self.board[i].get_name(), self.board[i].get_score(), self.board[i].get_time()
 			print(name, score, time, file=leaderboardfile)
 
-test = Leaderboard()
-test.print_board()
