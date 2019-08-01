@@ -76,15 +76,22 @@ def box(intDim):
 # The function returns both lists
 def load_art(path):
     with open(path, "r") as artfile:
-        pallet = artfile.readline()
-        pixels = artfile.read().split("\n")
+        pixels = []
+        for line in artfile:
+            if line == artfile[0]:
+                pallet = line.split(",")
+            else:
+                pixelrow=line.split(",")
+                pixels.append(pixelrow)
+    print(pallet, pixels)
     return (pallet, pixels)
 
 
 # This function takes a pallet and pixel list (matrix) to draw the picture
 # You are to write this function
 def draw(pallet, pixels):
-	raise NotImplementedError
+	pendown()
+    box(boxsize)
 
 # Should give the user a list of the possible drawing pieces you have and ask which one to draw
 # After drawing the piece, ask the if they would like to draw a different piece until they quit the program.
