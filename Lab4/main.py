@@ -11,9 +11,9 @@ import turtle
 turtle.screensize(200, 200, bg="#FFFFFF")
 myPen = turtle.Turtle()
 myPen.color("#000000")
-myPen.speed(10)
+myPen.speed(100)
 # If you would like to slow down the animation, uncomment the next line. Higher delay, the slower it will be
-turtle.delay(100)
+turtle.delay()
 # setting out box sizes to the n sq pixels per box
 boxsize = 10
  
@@ -81,7 +81,7 @@ def load_art(path):
             if line == artfile[0]:
                 pallet = line.split(",")
             else:
-                pixelrow=line.split(",")
+                pixelrow = line.split(",")
                 pixels.append(pixelrow)
     print(pallet, pixels)
     return pallet, pixels
@@ -92,9 +92,10 @@ def load_art(path):
 # This function takes a pallet and pixel list (matrix) to draw the picture
 # You are to write this function
 def draw(pallet, pixels):
-    for i in range(len(pixels)): #each line of pixels
-        for j in range(len(pixels[i])): #each pixel in the line
-            color = int(pallet[pixels[i][j]]) #assigns the color value of the pixel
+    for row in pixels: #each line of pixels
+        for pixel in row: #each pixel in the line
+            color = int(pixel)
+            color = pallet[color]#assigns the color value of the pixel
             myPen.color(color) #changes the color of the pen to the correct color
             box(boxsize) #draws the box
             myPen.penup() #stops the pen from drawing
@@ -104,7 +105,7 @@ def draw(pallet, pixels):
         myPen.right(90)
         myPen.forward(boxsize) #moves pen down 1
         myPen.left(90)
-        myPen.backward(len(pixels)) #moves 1 len(line) back
+        myPen.backward(len(pixels)*10) #moves 1 len(line) back
         myPen.pendown() #puts the pen down to start drawing again
 
 # Should give the user a list of the possible drawing pieces you have and ask which one to draw
@@ -112,7 +113,8 @@ def draw(pallet, pixels):
 if __name__ == '__main__':
     # sample for loading art and calling draw
     pallet_1, pixels_1 = load_art('art/banana.txt')
-    #draw(pallet_1, pixels_1)
+    #turtle.tracer(10)
+    draw(pallet_1, pixels_1)
     print("test")
     # You need this to prevent the window from closing after drawing
     turtle.done()
