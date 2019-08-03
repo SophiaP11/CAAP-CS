@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\cygwin64\home\sophi\CAAP-CS\lab4\env"
+VIRTUAL_ENV="C:\Users\sophi\CAAP-CS\Lab4\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

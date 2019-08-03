@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\cygwin64\home\sophi\CAAP-CS\lab4\env"
+$env:VIRTUAL_ENV="C:\Users\sophi\CAAP-CS\Lab4\env"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
