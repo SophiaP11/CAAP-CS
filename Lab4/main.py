@@ -11,9 +11,9 @@ import turtle
 turtle.screensize(200, 200, bg="#FFFFFF")
 myPen = turtle.Turtle()
 myPen.color("#000000")
-myPen.speed(100)
+myPen.speed(10)
 # If you would like to slow down the animation, uncomment the next line. Higher delay, the slower it will be
-turtle.delay()
+#turtle.delay()
 # setting out box sizes to the n sq pixels per box
 boxsize = 10
  
@@ -25,9 +25,10 @@ boxsize = 10
 # Positions myPen in top left area of the screen
 # This canvas is currently set to 200*200 pixels or a 20x20 box of 10 sq pixels each
 def goto_origin(myPen):
-    myPen.home()
+    myPen.goto(-150, 200)
 
 # This function draws a box by drawing each side of the square and using the fill function
+
 def box(intDim):
     # Can also be done with a for loop - Can you rewrite thise function as such?
     myPen.begin_fill()
@@ -83,7 +84,6 @@ def load_art(path):
             else:
                 pixelrow = line.split(",")
                 pixels.append(pixelrow)
-    print(pallet, pixels)
     return pallet, pixels
 
 
@@ -105,16 +105,41 @@ def draw(pallet, pixels):
         myPen.right(90)
         myPen.forward(boxsize) #moves pen down 1
         myPen.left(90)
-        myPen.backward(len(pixels)*10) #moves 1 len(line) back
+        myPen.backward(len(row)*10) #moves 1 len(line) back
         myPen.pendown() #puts the pen down to start drawing again
+    return
 
 # Should give the user a list of the possible drawing pieces you have and ask which one to draw
-# After drawing the piece, ask the if they would like to draw a different piece until they quit the program.
-if __name__ == '__main__':
-    # sample for loading art and calling draw
-    pallet_1, pixels_1 = load_art('art/banana.txt')
-    #turtle.tracer(10)
-    draw(pallet_1, pixels_1)
-    print("test")
-    # You need this to prevent the window from closing after drawing
-    turtle.done()
+# After drawing the piece, asks the user if they would like to draw a different piece until they quit the program.
+def pixelart():
+    choice = input("Which pixel art would you like to see? To quit enter :q.\n{1} Bannana\n{2} Mario\n{3} Pacman Ghost\n{4} Space Invader\n{5} Smiley Face\n{6} Mushroom\nChoice: ")
+    if (choice == ':q'):
+        exit(1)
+    else:
+        print("Click anywhere on the graphic to close the window.\n ")
+        myPen.penup()
+        goto_origin(myPen)
+        myPen.pendown()
+        while (choice != ':q'):
+            print("Click anywhere on the graphic to close the window.\n ")
+            choice = int(choice)
+            if (choice == 1):
+                file = 'art/banana.txt'
+            elif (choice == 2):
+                file = 'art/mario.txt'
+            elif (choice == 3):
+                file = 'art/pacman.txt'
+            elif (choice == 4):
+                file = 'art/alien.txt'
+            elif (choice == 5):
+                file = 'art/smileyface.txt'
+            elif (choice == 6):
+                file = 'art/mushroom.txt'
+            pallet_1, pixels_1 = load_art(file)
+            draw(pallet_1, pixels_1)
+            # You need this to prevent the window from closing after drawing
+            turtle.getscreen().exitonclick()
+            choice = input("Which pixel art would you like to see next? To quit enter :q.\n{1} Bannana\n{2} Mario\n{3} Pacman Ghost\n{4} Space Invader\n{5} Smiley Face\n{6} Mushroom\nChoice: ")
+        if (choice == ':q'):
+            exit(1)
+pixelart()
