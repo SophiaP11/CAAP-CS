@@ -58,7 +58,7 @@ def play_game():
         # assigns the name variable to the user's input of their name
         if (name == ':q'):
             exit(1)
-        difficulty = input("Choose your difficulty by entering the amount of lives you would like to have. Every life adds 100 points to your score.\n1-2:Pretty Hard\n3-4:Average\n5-:Easy Peasy\nLives: ")#creating difficulty levels
+        difficulty = input("Choose your difficulty by entering the amount of lives you would like to have. Every life adds 100 points to your score.\n1-2:Pretty Hard\n3-4:Average\n5-6:Easy Peasy\nLives: ")#creating difficulty levels
         #lets the player choose their difficulty level based on the amount of lives they choose. The amount of lives will affect their final score to make the leaderboard more fair.
         if (difficulty == ':q'):
             exit(1)
