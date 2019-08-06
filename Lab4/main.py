@@ -14,7 +14,7 @@ myPen.color("#000000")
 myPen.speed(10)
 # If you would like to slow down the animation, uncomment the next line. Higher delay, the slower it will be
 turtle.delay(0)
-#turtle.tracer(200)
+# turtle.tracer(200)
 # setting out box sizes to the n sq pixels per box
 boxsize = 10
  
@@ -109,7 +109,7 @@ def load_art(path):
 # It asks the user what shape they would like their pixels to be and then draws the art file.
 def draw(pallet, pixels, boxsize):
     goto_origin(myPen)
-    shape_number= int(input("What shape would you like your pixels to be?\n{1} Box\n{2} Triangle\n{3} Circle\n Choice: "))
+    shape_number= int(input("What shape would you like your pixels to be?\n{1} Boxes\n{2} Triangles\n{3} Circles\n Choice: "))
     #changes the later statement {shape(boxsize)} to fit with the user's preferance
     try:
         if shape_number == 1:
@@ -118,26 +118,25 @@ def draw(pallet, pixels, boxsize):
             shape = triangle
         elif shape_number == 3:
             shape = circle
-    except ValueError:
-        print("Please make sure you are entering just a number between 1 and 3.")
-        draw(pallet_1, pixels_1, boxsize)
-    for row in pixels: #each line of pixels
-        for pixel in row: #each pixel in the line
-            color = int(pixel)
-            color = pallet[color]#assigns the color value of the pixel
-            myPen.color(color) #changes the color of the pen to the correct color
-            shape(boxsize) #draws the box
+        for row in pixels: #each line of pixels
+            for pixel in row: #each pixel in the line
+                color = int(pixel)
+                color = pallet[color]#assigns the color value of the pixel
+                myPen.color(color) #changes the color of the pen to the correct color
+                shape(boxsize) #draws the box
+                myPen.penup() #stops the pen from drawing
+                myPen.forward(boxsize) #moves the pen 1 pixel to the right
+                myPen.pendown() #puts the pen down to start drawing again
             myPen.penup() #stops the pen from drawing
-            myPen.forward(boxsize) #moves the pen 1 pixel to the right
+            myPen.right(90)#turns pen to face down
+            myPen.forward(boxsize) #moves pen down 1
+            myPen.left(90)#turns pen back up to face forward
+            myPen.backward(len(row)*boxsize) #moves 1 len(line) back
             myPen.pendown() #puts the pen down to start drawing again
-        myPen.penup() #stops the pen from drawing
-        myPen.right(90)#turns pen to face down
-        myPen.forward(boxsize) #moves pen down 1
-        myPen.left(90)#turns pen back up to face forward
-        myPen.backward(len(row)*boxsize) #moves 1 len(line) back
-        myPen.pendown() #puts the pen down to start drawing again
+    except UnboundLocalError:
+        print("Please make sure you are entering a number amongst the choices and just a number. I'm sorry but you will have to start over and reselect your art piece.")
+        pixelart()
     return
-
 # Should give the user a list of the possible drawing pieces you have and ask which one to draw
 # After drawing the piece, asks the user if they would like to draw a different piece until they quit the program.
 def pixelart():
@@ -168,15 +167,19 @@ def pixelart():
                 elif (choice == 8):
                     file = 'art/genie.txt'
                     boxsize = 5
+                else:
+                    print("Please make sure you are entering a number amongst the choices and just a number.")
+                    pixelart()
+                pallet_1, pixels_1 = load_art(file)
+                turtle.resetscreen() #clears previous picture off the window
+                turtle.tracer(300,0)
+                draw(pallet_1, pixels_1, boxsize)
+                turtle.update()
+                boxsize = 10
+                choice = input("Which pixel art would you like to see next? To quit enter :q.\n{1} Bannana\n{2} Mario\n{3} Pacman Ghost\n{4} Space Invader\n{5} Smiley Face\n{6} Mushroom\n{7} Panda\n{8} Aladdin Genie\nChoice: ")
             except ValueError:
-                print("Please make sure you are entering just a number between 1 and 8.")
+                print("Please make sure you are entering a number amongst the choices and just a number.")
                 pixelart()
-        pallet_1, pixels_1 = load_art(file)
-        turtle.resetscreen() #clears previous picture off the window
-        draw(pallet_1, pixels_1, boxsize)
-        boxsize = 10
-        choice = input("Which pixel art would you like to see next? To quit enter :q.\n{1} Bannana\n{2} Mario\n{3} Pacman Ghost\n{4} Space Invader\n{5} Smiley Face\n{6} Mushroom\n{7} Panda\n{8} Aladdin Genie\nChoice: ")
-        # You need this to prevent the window from closing after drawing
-    if (choice == ':q'):
-        exit(1)
+        if (choice == ':q'):
+            exit(1)
 pixelart()
