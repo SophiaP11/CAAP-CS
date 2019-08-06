@@ -111,12 +111,16 @@ def draw(pallet, pixels, boxsize):
     goto_origin(myPen)
     shape_number= int(input("What shape would you like your pixels to be?\n{1} Box\n{2} Triangle\n{3} Circle\n Choice: "))
     #changes the later statement {shape(boxsize)} to fit with the user's preferance
-    if shape_number == 1:
-        shape = box
-    elif shape_number == 2:
-        shape = triangle
-    elif shape_number == 3:
-        shape = circle
+    try:
+        if shape_number == 1:
+            shape = box
+        elif shape_number == 2:
+            shape = triangle
+        elif shape_number == 3:
+            shape = circle
+    except ValueError:
+        print("Please make sure you are entering just a number between 1 and 3.")
+        draw(pallet_1, pixels_1, boxsize)
     for row in pixels: #each line of pixels
         for pixel in row: #each pixel in the line
             color = int(pixel)
@@ -142,27 +146,31 @@ def pixelart():
     if (choice == ':q'):
         exit(1)
     else:
-        goto_origin(myPen)
-    while (choice != ':q'):
-        choice = int(choice)
-        if (choice == 1):
-            file = 'art/banana.txt'
-        elif (choice == 2):
-            file = 'art/mario.txt'
-        elif (choice == 3):
-            file = 'art/pacman.txt'
-        elif (choice == 4):
-            file = 'art/alien.txt'
-            print(file)
-        elif (choice == 5):
-            file = 'art/smileyface.txt'
-        elif (choice == 6):
-            file = 'art/mushroom.txt'
-        elif (choice == 7):
-            file = 'art/panda.txt'
-        elif (choice == 8):
-            file = 'art/genie.txt'
-            boxsize = 5
+        while (choice != ':q'):
+            try:
+                goto_origin(myPen)
+                choice = int(choice)
+                if (choice == 1):
+                    file = 'art/banana.txt'
+                elif (choice == 2):
+                    file = 'art/mario.txt'
+                elif (choice == 3):
+                    file = 'art/pacman.txt'
+                elif (choice == 4):
+                    file = 'art/alien.txt'
+                    print(file)
+                elif (choice == 5):
+                    file = 'art/smileyface.txt'
+                elif (choice == 6):
+                    file = 'art/mushroom.txt'
+                elif (choice == 7):
+                    file = 'art/panda.txt'
+                elif (choice == 8):
+                    file = 'art/genie.txt'
+                    boxsize = 5
+            except ValueError:
+                print("Please make sure you are entering just a number between 1 and 8.")
+                pixelart()
         pallet_1, pixels_1 = load_art(file)
         turtle.resetscreen() #clears previous picture off the window
         draw(pallet_1, pixels_1, boxsize)
